@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="main-layout.html">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div layout:fragment="other_structure">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>NAME</th>
+      <th>AUTHOR</th>
+      <th>DESCRIPTION</th>
+      <th>COST</th>
+      <th style="width: 8%;">DETAILS</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="st : ${books}">
+      <td th:text="${st.id}"></td>
+      <td th:text="${st.name}"></td>
+      <td th:text="${st.author}"></td>
+      <td th:text="${st.description}"></td>
+      <td th:text="${st.cost}"></td>
+      <td><a th:href="@{'/details/' + ${st.id}}" class="btn btn-primary btn-sm">DETAILS</a></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
